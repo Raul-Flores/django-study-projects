@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from proyecto1.views import saludo
+from proyecto1.views import saludo, cursopyton, clasegit
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('saludo/', saludo),
+    path('cursopython/', cursopyton),
+    path('clasegit/', clasegit)
 ]
