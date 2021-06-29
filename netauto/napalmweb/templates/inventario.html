@@ -1,0 +1,148 @@
+{% extends 'base.html'%}
+{% block titulo %}Inventario equipos {% endblock titulo %}
+
+{% block inventario %}
+<!--Formulario de ingreso de datos y resultados-->
+<div class="container-lg", style="margin-top: 1cm; background-color: rgb(61, 66, 90);">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="text-info">
+          Napalm GUI example
+        </h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <form role="form" method="post">
+          {% csrf_token %}
+          {% for field in form %}
+          <div class="form-group", style="color: snow;">
+            <label for="{{ field.id_for_label }}" class=""></label>{{ field.label }}</label>
+              <div>
+                {{ field }}
+              </div>
+          </div>  
+          {% endfor %}
+          <button type="submit" class="btn btn-primary"; style="margin: 0.50;">
+            Agregar equipo
+          </button>
+          <button type="Enviar comando" class="btn btn-primary"; style="margin: 0.50cm;">
+            Enviar comando
+          </button>
+        </form>
+      </div>
+      <div class="col-md-8", style="color: wheat; font-size: 2cm"/>
+        <h2>
+          Resultado de comando:
+        </h2>
+        <p>
+            {{ Resultado }}
+        </p>
+        <p>
+          <a class="btn", style="font-size: 0.80cm; color:yellow;" href="#"> informacion: »</a>
+        </p>
+      </div>
+    </div>
+  </div>
+{% endblock inventario %}
+
+{% block tabla_dispositivos %}
+<div class="container-lg", style="margin-top: 1cm;>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>
+                #
+              </th>
+              <th>
+                Router IP
+              </th>
+              <th>
+                Protocolo
+              </th>
+              <th>
+                Puerto
+              </th>
+              <td>Editar</a></td> 
+              <td>Eliminar</a></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                1
+              </td>
+              <td>
+                TB - Monthly
+              </td>
+              <td>
+                01/04/2012
+              </td>
+              <td>
+                Default
+              </td>
+            </tr>
+            <tr class="table-active">
+              <td>
+                1
+              </td>
+              <td>
+                TB - Monthly
+              </td>
+              <td>
+                01/04/2012
+              </td>
+              <td>
+                Approved
+              </td>
+            </tr>
+            <tr class="table-success">
+              <td>
+                2
+              </td>
+              <td>
+                TB - Monthly
+              </td>
+              <td>
+                02/04/2012
+              </td>
+              <td>
+                Declined
+              </td>
+            </tr>
+            <tr class="table-warning">
+              <td>
+                3
+              </td>
+              <td>
+                TB - Monthly
+              </td>
+              <td>
+                03/04/2012
+              </td>
+              <td>
+                Pending
+              </td>
+            </tr>
+            <tr class="table-danger">
+              <td>
+                4
+              </td>
+              <td>
+                TB - Monthly
+              </td>
+              <td>
+                04/04/2012
+              </td>
+              <td>
+                Call in to confirm
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock tabla_dispositivos %}
