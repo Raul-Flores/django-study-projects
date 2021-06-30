@@ -1,0 +1,82 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block titulo %}Inventario equipos {% endblock titulo %}
+
+<body>
+    {% block inventario %}
+<div class="container-lg", style="margin-top: 1cm; background-color: rgb(61, 66, 90);">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="text-info">
+          Napalm GUI example
+        </h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <form role="form" method="post">
+          {% csrf_token %}
+          {% for field in form %}
+          <div class="form-group", style="color: snow;">
+            <label for="{{ field.id_for_label }}" class=""></label>{{ field.label }}</label>
+              <div>
+                {{ field }}
+              </div>
+          </div>  
+          {% endfor %}
+          <button type="submit" class="btn btn-primary"; style="margin: 0.50;">
+            Agregar equipo
+          </button>
+          <button type="comando" class="btn btn-primary"; style="margin: 0.50cm;">
+            Enviar comando
+          </button>
+        </form>
+      </div>
+      <div class="col-md-8", style="color: wheat; font-size: 2cm"/>
+        <h2>
+          Resultado de comando:
+        </h2>
+        <p>
+            {{ Resultado }}
+        </p>
+        <p>
+          <a class="btn", style="font-size: 0.80cm; color:yellow;" href="#"> informacion: »</a>
+        </p>
+      </div>
+    </div>
+  </div>
+{% endblock inventario %}
+
+{% block tabla_dispositivos %}
+<div class="container-lg">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-12">
+					<table class="table">
+                        <thead>
+                            <th>Router IP</th>
+                            <th>Protocolo</th>
+                            <th>Puerto</th>
+                            <th>Password</th>
+                        </thead>
+                        <tbody>
+                            {% for devices in device %}
+                            <tr class="table-success">
+                                <td>{{ devices.direccionip }}</td>
+                                <td>{{ devices.protocolo }} </td>
+                                <td>{{ devices.puerto }} </td>
+                                <td>{{ devices.password }} </td>
+                                <td><a href="{% url 'editarDispositivo' devices.id %}">Editar</a></td> 
+                                <td><a href="{% url 'eliminarDispositivo' devices.id %}">Eliminar</a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock tabla_dispositivos %}
+</body>
