@@ -25,7 +25,7 @@
           </div>  
           {% endfor %}
           <button type="submit" class="btn btn-primary"; style="margin: 0.50;">
-            Agregar equipo
+            Agregar/Editar Dispositivo
           </button>
           <button type="comando" class="btn btn-primary"; style="margin: 0.50cm;">
             Enviar comando
@@ -58,7 +58,9 @@
                             <th>Router IP</th>
                             <th>Protocolo</th>
                             <th>Puerto</th>
-                            <th>Password</th>
+                            <!--<th>Password</th>-->
+                            <th>Editar</th>
+                            <th>Eliminar</th>
                         </thead>
                         <tbody>
                             {% for devices in device %}
@@ -66,7 +68,7 @@
                                 <td>{{ devices.direccionip }}</td>
                                 <td>{{ devices.protocolo }} </td>
                                 <td>{{ devices.puerto }} </td>
-                                <td>{{ devices.password }} </td>
+                                <!--<td>{{ devices.password }} </td>-->
                                 <td><a href="{% url 'editarDispositivo' devices.id %}">Editar</a></td> 
                                 <td><a href="{% url 'eliminarDispositivo' devices.id %}">Eliminar</a></td>
                             </tr>
