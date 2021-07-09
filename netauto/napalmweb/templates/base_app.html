@@ -2,8 +2,7 @@
 {% load static %}
 {% block titulo %}Inventario equipos {% endblock titulo %}
 
-<body>
-    {% block inventario %}
+{% block content %}
 <div class="container-lg", style="margin-top: 1cm; background-color: rgb(61, 66, 90);">
     <div class="row">
       <div class="col-md-12">
@@ -45,32 +44,33 @@
       </div>
     </div>
   </div>
-{% endblock inventario %}
-
-{% block tabla_dispositivos %}
 <div class="container-lg">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="row">
 				<div class="col-md-12">
-					<table class="table">
+					<table class="table table-dark table-hover">
                         <thead>
                             <th>Router IP</th>
                             <th>Protocolo</th>
                             <th>Puerto</th>
+                            <th>Usuario</th>
                             <!--<th>Password</th>-->
                             <th>Editar</th>
                             <th>Eliminar</th>
+                            <th>comandos</th>
                         </thead>
                         <tbody>
                             {% for devices in device %}
-                            <tr class="table-success">
+                            <tr>
                                 <td>{{ devices.direccionip }}</td>
                                 <td>{{ devices.protocolo }} </td>
                                 <td>{{ devices.puerto }} </td>
+                                <td>{{ devices.usuario }} </td>
                                 <!--<td>{{ devices.password }} </td>-->
-                                <td><a href="{% url 'editarDispositivo' devices.id %}">Editar</a></td> 
-                                <td><a href="{% url 'eliminarDispositivo' devices.id %}">Eliminar</a></td>
+                                <td><a class="badge badge-info" href="{% url 'editarDispositivo' devices.id %}">Editar</a></td> 
+                                <td><a class="badge badge-danger" href="{% url 'eliminarDispositivo' devices.id %}">Eliminar</a></td>
+                                <td><a class="badge badge-info" href="{% url 'comandos' devices.id %}">comandos</a></td>
                             </tr>
                             {% endfor %}
                         </tbody>
@@ -80,5 +80,5 @@
         </div>
     </div>
 </div>
-{% endblock tabla_dispositivos %}
-</body>
+{% endblock content %}
+
