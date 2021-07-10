@@ -3,26 +3,32 @@
 {% block titulo %}Inventario equipos {% endblock titulo %}
 {% block content %}
 {% load crispy_forms_tags %}
-<div class="container-lg", style="margin-top: 1cm; background-color: rgb(61, 66, 90);">
+<div class="container-lg mt-4 bg-secondary">
     <div class="row">
       <div class="col-md-12">
-        <h1 class="text-info">
+        <h1 class="text-warning">
           Netmiko GUI tool
         </h1>
       </div>
     </div>
     <div class="row">
       <div class="col-md-3">
-        <form role="form" method="post" action="" class="mt-2 text-white" autocomplete="off">
-          {% csrf_token %}
-          {{ form | crispy }}
-          <button type="submit" class="btn btn-secondary mt-4">
-            Agregar/Editar Dispositivo
-          </button>
-        </form>
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+          <div class="card-header">Dispositivos de red</div>
+          <div class="card-body">
+            <h5 class="card-title">Formulario de ingreso de equipos</h5>
+            <form role="form" method="post" action="" class="mt-2 text-white" autocomplete="off">
+              {% csrf_token %}
+              {{ form | crispy }}
+              <button type="submit" class="btn btn-success mt-4">
+                Agregar/Editar Dispositivo
+              </button>
+            </form>
+          </div>
+        </div>
     </div>
     <div class="col-md-9">
-      <table class="table table-dark table-hover">
+      <table class="table table-dark table-hover h5">
             <thead>
                 <th>Router IP</th>
                 <th>Protocolo</th>
