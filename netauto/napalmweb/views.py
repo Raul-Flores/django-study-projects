@@ -65,8 +65,13 @@ def comandos(request,id):
           'device': devices
         }
     else:
-        device = {'username': devices.usuario, 'ip': devices.direccionip, 'device_type': 'cisco_ios', 'port': devices.puerto,
-                  'password': devices.password}
+        device = {
+            'username': devices.usuario, 
+            'ip': devices.direccionip, 
+            'device_type': 'cisco_ios',
+            'port': devices.puerto,
+            'password': devices.password
+            }
         try:          
             connection = ConnectHandler(**device)
             resultado = connection.send_command(request.POST['comando'], use_textfsm=True)
