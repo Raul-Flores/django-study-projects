@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django import urls
 from django.contrib import admin
+from django.contrib import auth
 from django.urls import path, include
 from napalmweb import views
-
+from django.contrib.auth import logout, views as auth_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('napalmweb.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

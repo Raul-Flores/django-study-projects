@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+{% load crispy_forms_tags %}
+<html lang="en">
+<head>
+    <style>
+        body {
+            background: #2C3E50;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #4CA1AF, #2C3E50);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #4CA1AF, #2C3E50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+    <title>Autenticacion</title>
+</head>
+<body>
+    <div>  
+    </br>
+    </br>
+    </br>
+    </div>
+    <div class="container d-flex justify-content-center">
+        <div class="row">
+            <div class="col">
+                <div class="card text-white bg-secondary mb-3" style="min-width: 30rem;">
+                    <div class="card-header">Network-automation-web</div>
+                    <div class="card-body">
+                      </br>
+                      <div class="form-group">
+                        <h3 class="txt_gris_medio"> Acceder </h3>
+                        <hr>
+                        </br>
+                        <div class="login-container">
+                            {% if form.errors %}
+                            <div class="alert alert-danger"<p>Tu usuario y contrase no coinciden, por favor intenta nuevamente.</p>
+                            </div>
+                            {% endif %}
+                            <form id="form-group" method="post" action="">
+                                {% csrf_token %}
+                                    {{ form.username|as_crispy_field  }}
+                                </br>
+                                    {{ form.password|as_crispy_field }}
+                                </br>
+                                <button id="btn-registrar" class="button_large">Entrar</button>
+                                <div class="clearfix"></div>          
+                            </form>
+                            </br>
+                            <a href="#" class="txt_verde txt_center mt15 mb20" style="display: block">Aviso de privcidad</a>
+                            </br>
+                        </div>
+                    </div>
+                      <p class="card-text">Todos los derechos reservados.</p>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
+
+

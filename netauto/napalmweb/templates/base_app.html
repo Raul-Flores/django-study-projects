@@ -1,60 +1,21 @@
-{% extends 'base.html'%}
-{% load static %}
-{% block titulo %}Inventario equipos {% endblock titulo %}
+{% extends 'base_layout.html' %}
 {% block content %}
 {% load crispy_forms_tags %}
-<div class="container-lg mt-4 bg-secondary">
-    <div class="row">
-      <div class="col-md-12">
-        <h1 class="text-warning">
-          Netmiko GUI tool
-        </h1>
-      </div>
+    <div class="col-lg-12">
+        <div class="mb-3">
+            <a href="{% url 'logout' %}" class="btn btn-primary mb-3">Salir</a>
+        </div>
     </div>
     <div class="row">
-      <div class="col-md-3">
-        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-          <div class="card-header">Dispositivos de red</div>
-          <div class="card-body">
-            <h5 class="card-title">Formulario de ingreso de equipos</h5>
-            <form role="form" method="post" action="" class="mt-2 text-white" autocomplete="off">
+      <div class="col">
+            <form role="form" method="post" action="" class="text-black" autocomplete="off">
               {% csrf_token %}
               {{ form | crispy }}
               <button type="submit" class="btn btn-success mt-4">
                 Agregar/Editar Dispositivo
               </button>
             </form>
-          </div>
-        </div>
+      </div>    
     </div>
-    <div class="col-md-9">
-      <table class="table table-dark table-hover h5">
-            <thead>
-                <th>Router IP</th>
-                <th>Protocolo</th>
-                <th>Puerto</th>
-                <th>Usuario</th>
-                <!--<th>Password</th>-->
-                <th>Editar</th>
-                <th>Eliminar</th>
-                <th>comandos</th>
-            </thead>
-            <tbody>
-            {% for devices in device %}
-               <tr>
-                  <td>{{ devices.direccionip }}</td>
-                  <td>{{ devices.protocolo }} </td>
-                  <td>{{ devices.puerto }} </td>
-                  <td>{{ devices.usuario }} </td>
-                  <!--<td>{{ devices.password }} </td>-->
-                  <td><a class="badge badge-info" href="{% url 'editarDispositivo' devices.id %}">Editar</a></td> 
-                  <td><a class="badge badge-danger" href="{% url 'eliminarDispositivo' devices.id %}">Eliminar</a></td>
-                  <td><a class="badge badge-info" href="{% url 'comandos' devices.id %}">comandos</a></td>
-               </tr>
-            {% endfor %}
-            </tbody>
-      </table>
-    </div>
-</div>
-{% endblock content %}
+{% endblock %}
 
