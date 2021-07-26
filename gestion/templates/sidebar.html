@@ -1,0 +1,46 @@
+<div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+    <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <span class="fs-5 d-none d-sm-inline">Menu</span>
+    </a>
+    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+        <li class="nav-item">
+            <a href="#" class="nav-link align-middle px-0">
+                <a href="{% url 'docentes' %}" class="ms-1 d-none d-sm-inline">Docentes</a> 
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link align-middle px-0">
+                <a href="{% url 'cursos' %}" class="ms-1 d-none d-sm-inline">Cursos</a> 
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link align-middle px-0">
+                <a href="{% url 'listado_docentes' %}" class="ms-1 d-none d-sm-inline">Listado_docentes</a> 
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link align-middle px-0">
+                <a href="{% url 'listado_cursos' %}" class="ms-1 d-none d-sm-inline">Listado_cursos</a> 
+            </a>
+        </li>
+    </ul>
+    <hr>
+    <div class="dropdown pb-3">
+        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://avatars.githubusercontent.com/u/37640446?v=4" alt="hugenerd" width="30" height="30" class="rounded-circle">
+            <span class="d-none d-sm-inline mx-1">Usuario</span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+            <li><a class="dropdown-item" href="#">Nuevo Proyecto...</a></li>
+            <li><a class="dropdown-item" href="#">Configuraciones</a></li>
+            <li><a class="dropdown-item" href="#">Perfil</a></li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Cerrar Session</a></li>
+        </ul>
+    </div>
+</div>
+
+
+

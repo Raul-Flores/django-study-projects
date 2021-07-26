@@ -1,0 +1,25 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+<div class="col-lg-12">
+    <table class="table table-dark table-hover">
+        <thead>
+            <th>Nombre Curso</th>
+            <th>Creditos Academicos</th>
+            <th>Nombre Docente asignado</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+        </thead>
+        <tbody>
+        {% for cursos in curso %}
+           <tr>
+              <td>{{ cursos.nombre }} </td>
+              <td>{{ cursos.creditos }}</td>
+              <td>{{ cursos.docente }} </td>
+              <td><a class="btn btn-primary mb-3" href="{% url 'editarcurso' cursos.id %}">Editar</a></td> 
+              <td><a class="btn btn-danger mb-3" href="{% url 'eliminarcurso' cursos.id %}">Eliminar</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
