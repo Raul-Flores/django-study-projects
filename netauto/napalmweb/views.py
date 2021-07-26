@@ -74,7 +74,7 @@ def editarDispositivo(request,id):
             form.save()
             return redirect('home')
 
-    return render(request, 'base_app.html', contexto)\
+    return render(request, 'base_app.html', contexto)
         
 @login_required
 def eliminarDispositivo(request, id):
